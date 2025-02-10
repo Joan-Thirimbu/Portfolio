@@ -1,26 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <NavbarComponent/>
+    <HomeSection id="home" />
+    <AboutSection id="about" />
+    <WorkSection id="work" />
+    <ContactSection id="contact" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import NavbarComponent from '@/components/NavbarComponent.vue';
+import HomeSection from './components/HomeSection.vue';
+import AboutSection from './components/AboutSection.vue';
+import ContactSection from './components/ContactSection.vue';
+import WorkSection from './components/WorkSection.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavbarComponent,
+    HomeSection,
+    AboutSection,
+    ContactSection,
+    WorkSection,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
+}
+html{
+    color: #F8F7F5;
+    background: #64786B;
+    background-image: url(/src/assets/grainy.webp);
+    font-family: "Eczar", serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 </style>
