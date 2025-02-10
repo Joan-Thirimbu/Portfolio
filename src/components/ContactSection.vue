@@ -1,5 +1,7 @@
 <template>
-    <h1>Contact Section</h1>
+    <section id="contact">
+        <h1>Contact Section</h1>
+    </section>
 </template>
 
 <script>

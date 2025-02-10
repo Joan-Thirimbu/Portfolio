@@ -1,10 +1,10 @@
 <template>
   <div>
     <NavbarComponent/>
-    <HomeSection id="home" />
-    <AboutSection id="about" />
-    <WorkSection id="work" />
-    <ContactSection id="contact" />
+    <HomeSection/>
+    <AboutSection/>
+    <WorkSection/>
+    <ContactSection/>
   </div>
 </template>
 
@@ -31,11 +31,12 @@ export default {
   box-sizing: border-box;
 }
 html{
-    color: #F8F7F5;
-    background: #64786B;
-    background-image: url(/src/assets/grainy.webp);
-    font-family: "Eczar", serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  color: #F8F7F5;
+  background: #64786B;
+  background-image: url(/src/assets/grainy.webp);
+  font-family: "Eczar", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
