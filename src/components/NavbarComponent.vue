@@ -1,6 +1,6 @@
 <template>
     <div class="navbar">
-        <div class="nav-content pt-8 px-6 flex items-center justify-between">
+        <div class="nav-content py-8 px-6 flex items-center justify-between">
             <div class="copyright flex justify-center items-center">
                 <span class="material-icons">copyright</span>
                 <span class="year">/2025</span>
@@ -9,7 +9,7 @@
             <button class="btn mobile-nav-toggle" @click="toggleNav()" :aria-expanded="isExpanded.toString()" type="button">
                 <span class="sr-only">Menu</span>
             </button>
-            <div class="nav-container" :class="{ open: isExpanded }">
+            <div class="pr-18 nav-container" :class="{ open: isExpanded }">
                 <ul class="nav-links justify-between flex">
                     <li><a href="#home" class="link home" @click.prevent="scrollToSection('home')"><span>Home</span></a></li>
                     <li><a href="#about" class="link about" @click.prevent="scrollToSection('about')"><span>About</span></a></li>
@@ -56,9 +56,10 @@ export default{
     z-index: 10;
     transform: translateY(-50%) rotate(-90deg);
     transform-origin: top left;
+    width: 100vh;
 }
 .nav-content{
-    gap: 3em;
+    gap: 4em;
 }
 .copyright{
     gap: 6px;
@@ -77,7 +78,7 @@ export default{
     content: "";
     display: block;
     height: 1px;
-    width: 112px;
+    width: 100%;
     background: #F8F7F5;
 }
 .sr-only {
@@ -114,6 +115,15 @@ export default{
         top: 0;
         width: 100vw;
     }
+    .nav-content{
+        background: #64786B;
+        background-image: url(/src/assets/grainy.webp);
+        padding-inline: 30px;
+        gap: 2.5em;
+    }
+    .nav-container{
+        padding-right: 18px;
+    }
     .work::after {
         content: "WK"; 
     }
@@ -135,13 +145,17 @@ export default{
         transform: rotate(0deg);
         top: 0;
         width: 100vw;
-        align-items: unset;
     } 
+    .nav-content{
+        background: #64786B;
+        background-image: url(/src/assets/grainy.webp);
+    }
     .line{
         display: none;
     }
     .nav-container{
         position: fixed;
+        padding: 0;
         inset: 0 0 0 40%;
         transform: translateX(100%);
         transition: transform 350ms ease-in-out;

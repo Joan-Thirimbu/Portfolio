@@ -32,7 +32,7 @@ export default{
 h1{
     color: #F8F7F5;
     font-family: Mynerve;
-    font-size: 70px;
+    font-size: 80px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -41,7 +41,7 @@ h1{
 p{
     color: #1E1E1E;
     font-family: Eczar;
-    font-size: 36px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -113,17 +113,16 @@ p{
     --angle: 360deg;
   }
 }
-@media screen and (min-width: 1281px){
-    .identifier svg{
-        right: 27%;
-    }
-}
 @media screen and (min-width: 767px) and (max-width: 1280px){
     h1{
-        font-size: 4em;
+        font-size: 3.5em;
+    }
+    p{
+        font-size: 1.8em;
     }
     .identifier svg{
-        right: 17.5%;
+        right: calc(17% + 3em);
+        top: 49.25%;
     }
 }
 @media screen and (min-width: 513px) and (max-width: 768px){
@@ -132,11 +131,8 @@ p{
         padding-bottom: 24px;
     }
     p{
-        font-size: 1.6em;
+        font-size: 1.5em;
         letter-spacing: 2.6px;
-    }
-    .identifier svg{
-        transform: rotate(-10deg);
     }
 }
 @media screen and (max-width: 512px){
@@ -149,8 +145,8 @@ p{
         font-size: 1.1em;
         letter-spacing: 2.6px;
     }
-    .identifier svg{
-        top: 50%;
+    .identifier{
+        padding-inline: calc(var(--spacing) * 6);
     }
 }
 </style>
