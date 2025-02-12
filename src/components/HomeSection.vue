@@ -34,7 +34,7 @@ h1{
     font-family: Mynerve;
     font-size: 80px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: normal;
     letter-spacing: 4.2px;
 }
