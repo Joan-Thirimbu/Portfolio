@@ -1,6 +1,6 @@
 <template>
-    <section id="about">
-        <div class="about-container">
+    <section class="py-[90px]" id="about">
+        <div class="about-content">
             <h1 class="text-center">About</h1>
             <div class="info">
                 <img src="../assets/profile.webp"/>
@@ -42,19 +42,17 @@ export default{
 </script>
 
 <style scoped>
-.about-container{
-    margin-inline: clamp(2em, 20em, 12vw);
-    padding-bottom: 90px;
+.about-content{
+    margin-inline: clamp(3em, 50em, 15vw);
 }
 h1{
-    font-size: 56px;
+    font-size: 46px;
     font-weight: 700;
-    padding-top: 70px;
 }
 .info{
     padding-top: 50px;
     display: grid;
-    gap: 2.5rem;
+    gap: 5rem;
     grid-template-columns: repeat(auto-fit, minmax(336px, 1fr));
     align-items: center;
 }
@@ -75,7 +73,7 @@ h1{
 }
 .role-cards{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     padding-top: 100px;
     margin: 0;
 }
@@ -94,8 +92,8 @@ h1{
 }
 .card-title img{
     width: auto;
-    max-width: 40px;
-    min-width: 30px;
+    max-width: 36px;
+    min-width: 24px;
     height: auto;
 }
 .title-text{
@@ -104,7 +102,7 @@ h1{
     align-items: flex-start;
 }
 .title-text span{
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 600;
     line-height: 32px;
     text-decoration: none;
@@ -146,28 +144,33 @@ h1{
     margin-left: 15px;
     background-color: #1E1E1E;
 }
+@media screen and (min-width: 961px){
+    h1{
+        font-size: 56px;
+    }
+    .info img{
+        justify-self: center;
+    }
+}
 @media screen and (max-width: 960px){
     .info{
         justify-items: center;
         grid-template-columns: 1fr;
-    }
-    .info-text{
-        padding-top: 40px;
     }
     .role-cards{
         padding-top: 60px;
     }
 }
 @media screen and (max-width: 512px){
-    .info-text{
-        padding-top: 20px;
+    .info{
+        gap: 3rem;
     }
     .role-cards{
         grid-template-columns: 1fr;
         padding-top: 60px;
     }
     .title-text span{
-        font-size: 22px;
+        font-size: 20px;
     }
 }
 </style>
