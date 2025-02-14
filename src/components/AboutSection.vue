@@ -43,7 +43,8 @@ export default{
 
 <style scoped>
 .about-content{
-    margin-inline: clamp(3em, 50em, 15vw);
+    margin-right: clamp(3em, 50em, 8.5vw) !important;
+    margin-inline: clamp(3em, 50em, 12vw);
 }
 h1{
     font-size: 46px;

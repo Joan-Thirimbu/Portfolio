@@ -188,9 +188,10 @@ export default{
     letter-spacing: 5px;
     text-transform: uppercase;
 }
-@media screen and (min-width: 1281px){
-    .line{
-        width: 294px;
+
+@media screen and (min-width: 769px){
+    .bg-work{
+        background: transparent !important; 
     }
 }
 @media screen and (min-width: 513px) and (max-width: 768px){
