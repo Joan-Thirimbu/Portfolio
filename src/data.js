@@ -80,4 +80,4 @@ export const positions = [
         desc: 'During my time as an IT Apprentice at Ubunifu Learning Hub, I addressed a range of computer-related issues, offering technical support and solutions to maintain seamless operations. In addition, I taught computer application units, equipping learners with vital skills and knowledge to improve their technological proficiency.',
         tools: ['Windows', 'LAN-WAN', 'Help Desk Support', 'Maintainace', 'Hardware']
     },
-]
+];

@@ -15,7 +15,7 @@
                     </div>
                     <div class="text-btn-div mt-4 flex flex-col items-start">
                         <span>Featured Project</span>
-                        <button class="text-justify btn-view mt-2">View Project</button>
+                        <button class="text-justify btn-view mt-2">View Designs</button>
                     </div>
                 </div>
             </div>

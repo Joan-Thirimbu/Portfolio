@@ -2,7 +2,7 @@
     <section class="py-[4.9em]" id="contact">
         <div class="contact-content flex justify-between">
             <div class="contacts flex flex-col gap-[2.125em]">
-                <img src="../assets/profile.webp">
+                <img src="../assets/avatar.webp">
                 <h1>Thank You.</h1>
                 <span>Need a beautiful, well-structured website that you can own and maintain yourself? Get in touch.</span>
                 <div class="socials">
