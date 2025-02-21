@@ -1,6 +1,6 @@
 <template>
     <div :class="['navbar', navbarClass]">
-        <div class="nav-content py-8 px-6 flex items-center justify-between">
+        <div class="nav-content py-9 px-6 flex items-center justify-between">
             <div class="copyright flex justify-center items-center">
                 <span class="material-icons">copyright</span>
                 <span class="year">/2025</span>
@@ -50,7 +50,7 @@ export default{
         updateNavbarStyle(section) {
             const expanded = this.isExpanded;
             if (section === 'work') {
-                this.navbarClass = 'bg-work text-black';  
+                this.navbarClass = 'bg-work text-dark';  
                 this.lineClass = 'line-dark';  
                 if(expanded === true) {
                     this.svg = 'close-dark';
@@ -81,20 +81,20 @@ export default{
 
             sections.forEach(section => {
                 const element = document.getElementById(section);
-                const sectionTop = element.getBoundingClientRect().top; 
-                const sectionHeight = element.offsetHeight;
-                const viewportHeight = window.innerHeight;
+                    const sectionTop = element.getBoundingClientRect().top; 
+                    const sectionHeight = element.offsetHeight;
+                    const viewportHeight = window.innerHeight;
 
-                if (sectionTop < viewportHeight * 0.8 && sectionTop + sectionHeight > viewportHeight * 0.8) {
-                activeSection = section;
+                    if (sectionTop < viewportHeight * 0.8 && sectionTop + sectionHeight > viewportHeight * 0.8) {
+                        activeSection = section;
                 }
             });
 
             this.updateNavbarStyle(activeSection);
-        },
+        }
     },
     mounted() {
-        window.addEventListener('scroll', this.handleScroll);
+            window.addEventListener('scroll', this.handleScroll);
     },
     unmounted() {
         window.removeEventListener('scroll', this.handleScroll);
@@ -110,7 +110,7 @@ export default{
     background: #1e1e1e !important;
 }
 .text-dark {
-  color: #1e1e1e;
+  color: #1e1e1e !important;
 }
 .bg-contact {
     background-color: #1e1e1e;
@@ -131,6 +131,7 @@ export default{
     background-image: url('../assets/close-dark.svg') !important;
 }
 .navbar{
+    color: #F8F7F5;
     position: fixed;
     top: 100%;
     left: 0;
@@ -140,7 +141,6 @@ export default{
     width: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 .nav-content{
     gap: 4em;
 }

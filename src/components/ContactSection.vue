@@ -16,7 +16,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="line"></div>
+            <div class="stroke"></div>
             <div class="fun-facts-content flex flex-col items-center">
                 <h2>Fun facts</h2>
                 <div class="fun-facts">
@@ -122,7 +122,7 @@ h1{
 .links a {
     text-decoration-line: underline; 
 }
-.line{
+.stroke{
     content: "";
     display: block;
     background: #F8F7F5;
@@ -198,7 +198,7 @@ h2{
         flex-direction: column;
         align-items: center;
     }
-    .line{
+    .stroke{
         order: 2;
         width: 100%;
         height: 1px;

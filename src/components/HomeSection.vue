@@ -9,7 +9,7 @@
                 </svg>
             </div>
             <div class="box">
-                <div class="scoll-indicator justify-center flex">
+                <div class="scroll-indicator justify-center flex">
                     <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.292897 0.296507C-0.0976325 0.687017 -0.0976325 1.32022 0.292897 1.71072L5.18509 6.59812C5.96629 7.37852 7.23209 7.37822 8.01289 6.59752L12.9032 1.70712C13.2938 1.31662 13.2938 0.683417 12.9032 0.292897C12.5127 -0.0976325 11.8795 -0.0976325 11.489 0.292897L7.30339 4.47852C6.91289 4.86912 6.27969 4.86902 5.88919 4.47852L1.70711 0.296507C1.31659 -0.0940228 0.683417 -0.0940228 0.292897 0.296507Z" fill="#F8F7F5"/>
                     </svg>
@@ -60,11 +60,12 @@ p{
 .box{
     position: absolute;
     bottom: 3rem;
+    z-index: 1;
 }
-.scoll-indicator svg{
+.scroll-indicator svg{
     animation: moveDown 1s ease-in-out infinite;
 }
-.scoll-indicator{
+.scroll-indicator{
     width: 36px;
     height: 48px;
     background: #64786B;
@@ -72,7 +73,7 @@ p{
     border-radius: .6em;
     overflow: hidden;
 }
-.scoll-indicator::after, .scoll-indicator::before{
+.scroll-indicator::after, .scroll-indicator::before{
     content: '';
     position: absolute;
     height: 112%;
@@ -85,7 +86,7 @@ p{
     border-radius: 10px;
     animation: 2s spin linear infinite;
 }
-.scoll-indicator::before{
+.scroll-indicator::before{
   filter: blur(1.5rem);
   opacity: 0.5;
 }

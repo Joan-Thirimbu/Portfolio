@@ -1,27 +1,23 @@
 import { createApp } from 'vue';
-import { createRouter, createWebHistory } from 'vue-router';
+import * as VueRouter from 'vue-router'
 import App from './App.vue';
-import WorkDesc from './components/WorkDetails.vue';
-import HomeSection from './components/HomeSection.vue';
+import WorkDetails from './components/WorkDetails.vue';
+import PageLayout from './components/PageLayout.vue';
 
-const routes = [
-  {
-    path: '/',
-    component: HomeSection,
-  },
-  {
-    path: '/work/:workId',
-    component: WorkDesc,
-  },
-];
+createApp(App)
+.use(VueRouter.createRouter({
+    history: VueRouter.createWebHistory(process.env.BASE_URL),
+    routes: [
+      {
+        path: '/',
+        component: PageLayout,
+      },
+      {
+        path: '/work/:workId',
+        component: WorkDetails,
+        props: true,
+      },
+    ]
+}))
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-});
-
-const app = createApp(App);
-app.use(router);
-app.mount('#app');
-
-export default router;
+.mount('#app')
