@@ -3,7 +3,10 @@ import computer from '../src/assets/computer.svg';
 import code from '../src/assets/code.svg';
 import taskforge from '../src/assets/taskforge.webp';
 import afripesa from '../src/assets/afripesa.webp';
-import finsys from '../src/assets/finsys.webp'
+import finsys from '../src/assets/finsys.webp';
+import deskTaskforge from '../src/assets/desktop-taskforge.png';
+import mobTaskforge from '../src/assets/mobile-taskforge.png';
+import sketchTaskforge from '../src/assets/sketch-taskforge.png';
 
 export const roles = [
     {
@@ -33,19 +36,27 @@ export const aboutInfo = `<p>As a <span class="key">Frontend Focused Developer</
 
 export const projects = [
     {
-        id: '1',
+        id: 1,
         image: taskforge,
         title: 'TaskForge',
         type: 'web design and development',
+        client: 'Website development for Creswave Limited – a software development company founded in 2016 headquartered in Nairobi, Kenya.',
+        role: 'Front End Developer',
+        duty: 'Web Development using Angular',
+        url: 'https://joan-thirimbu.github.io/TaskForge/',
+        desc: "I'm generally not a big fan of developing anything without knowing the finer details of a projects. I love to jump into Figma or pick a book to sketches some wireframes. In cases where I have time constrains this saves me from doing duplicate work and overall makes the project go faster which in this case they were (lucky me).",
+        preview: deskTaskforge,
+        mobImg: mobTaskforge,
+        sketch: sketchTaskforge,
     },
     {
-        id: '2',
+        id: 2,
         image: afripesa,
         title: 'AfriPesa',
         type: 'mobile design',
     },
     {
-        id: '1',
+        id: 3,
         image: finsys,
         title: 'Finsys Banking',
         type: 'web design and development',
