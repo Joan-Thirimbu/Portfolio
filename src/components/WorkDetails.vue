@@ -32,20 +32,22 @@
                     </div>
                     <div class="flex flex-col gap-3">
                         <p>url</p>
-                        <a :href="project.url" target="_blank">{{ project.url }}</a>
+                        <a v-if="project.url" :href="project.url" target="_blank" rel="noopener">
+                            {{ project.url.includes('figma.com') ? 'Figma Link' : project.url }}
+                        </a>
                     </div>
                 </div>
                 <div class="project-images grid gap-[3em]">
-                    <img :src="project.preview">
-                    <img :src="project.mobImg">
-                    <img :src="project.sketch">
+                    <img v-if="project.preview" :src="project.preview">
+                    <img v-if="project.mobImg" :src="project.mobImg">
+                    <img v-if="project.sketch" :src="project.sketch">
                 </div>
                 <div class="project-desc">
-                    <span>{{ project.desc }}</span>
+                    <span>{{ project.desc }}</span> 
+                    <br><br>
+                    <span v-if="project.desc2">{{ project.desc2 }}</span>
                 </div>
-                
             </div>
-            
         </div>
         <div class="next-project-div flex flex-col">
             <div class="flex justify-between items-center w-full">
@@ -142,7 +144,7 @@ export default {
 .work-details-content{
     gap: 50px;
     padding-top: 15vh;
-    padding-bottom: 24vh;
+    padding-bottom: 21vh;
 }
 .back-arrow{
     position: fixed;
@@ -191,6 +193,9 @@ export default {
     font-weight: 400;
     letter-spacing: 0.9px;
 }
+/* .project-overview a{
+    color: blue;
+} */
 .project-overview a:hover{
     text-decoration: underline;
 }
@@ -221,10 +226,10 @@ export default {
     letter-spacing: 0.05rem;
 }
 .next-project-div{
-    position: absolute;
-    bottom: 7vh;
-    right: 6vw;
-    width: 25.75rem;
+    position: fixed;
+    bottom: 4.4vh;
+    right: 4.4vw;
+    width: 18.8rem;
     height: 8.3125rem;
     padding: 1.875rem 2.5rem;
     gap: 0.625rem;
