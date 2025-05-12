@@ -32,15 +32,16 @@ export default{
             navbarClass: '',
             lineClass: '',
             svg: '',
+            lastValidSection: null,
         };
     },
     methods: {
         toggleNav(){
             this.isExpanded = !this.isExpanded;
-            this.updateNavbarStyle();
+            this.updateNavbarStyle(this.lastValidSection);
         },
         scrollToSection(section) {
-            this.updateNavbarStyle(section); 
+            this.updateNavbarStyle(section);
             const element = document.getElementById(section);
             window.scrollTo({
                 top: element.offsetTop,
@@ -49,30 +50,25 @@ export default{
         },
         updateNavbarStyle(section) {
             const expanded = this.isExpanded;
-            if (section === 'work') {
-                this.navbarClass = 'bg-work text-dark';  
-                this.lineClass = 'line-dark';  
-                if(expanded === true) {
-                    this.svg = 'close-dark';
-                }else{
-                    this.svg = 'menu-dark';
-                }    
-            } else if (section === 'contact') {
-                this.navbarClass = 'bg-contact';
-                this.lineClass = '';     
-                if(expanded === true) {
-                    this.svg = 'close-light';
-                }else{
-                    this.svg = 'menu-light';
-                }          
+            if (section === 'work' || section === 'contact') {
+                this.lastValidSection = section; 
             } else {
-                this.navbarClass = 'bg';  
-                this.lineClass = '';   
-                if(expanded === true) {
-                    this.svg = 'close-light';
-                }else{
-                    this.svg = 'menu-light';
-                }   
+                this.lastValidSection = null; 
+            }
+            const activeSection = section || this.lastValidSection || 'default'; 
+
+            if (activeSection === 'work') {
+                this.navbarClass = 'bg-work text-dark'; 
+                this.lineClass = 'line-dark';
+                this.svg = expanded ? 'close-dark' : 'menu-dark';
+            } else if (activeSection === 'contact') {
+                this.navbarClass = 'bg-contact';
+                this.lineClass = '';
+                this.svg = expanded ? 'close-light' : 'menu-light';
+            } else {
+                this.navbarClass = 'bg';
+                this.lineClass = '';
+                this.svg = expanded ? 'close-light' : 'menu-light';
             }
         },
         handleScroll() {
@@ -86,11 +82,19 @@ export default{
                     const viewportHeight = window.innerHeight;
 
                     if (sectionTop < viewportHeight * 0.8 && sectionTop + sectionHeight > viewportHeight * 0.8) {
-                        activeSection = section;
-                }
+                        activeSection = section;  
+                    }
             });
 
             this.updateNavbarStyle(activeSection);
+        }
+    },
+    watch: {
+        isExpanded() {
+            this.updateNavbarStyle(this.lastValidSection);  
+        },
+        lastValidSection() {
+            this.updateNavbarStyle(this.lastValidSection);  
         }
     },
     mounted() {
