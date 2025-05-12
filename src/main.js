@@ -13,7 +13,7 @@ createApp(App)
         component: PageLayout,
       },
       {
-        path: '/work/:workId',
+        path: '/work/:title',
         component: WorkDetails,
         props: true,
       },

@@ -38,7 +38,7 @@
                                 <span class="project-title">{{ project.title }}</span>
                                 <span class="project-type">- {{ project.type }}</span>
                             </div>
-                            <router-link :to="'/work/' + project.id">
+                            <router-link :to="'/work/' + project.title">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
                                     <path d="M1.69421 13.2798L13.6942 1.27979M13.6942 1.27979H2.89421M13.6942 1.27979V12.0798" stroke="#F8F7F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>

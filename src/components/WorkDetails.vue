@@ -68,6 +68,9 @@
             <h2>{{ nextProjectTitle }}</h2>
         </div>
     </div>
+    <div v-else>
+        <p>Project not found</p>
+    </div>
 </template>
 
 <script scoped>
@@ -76,7 +79,7 @@ import { projects } from '@/data';
 export default {
     name: "WorkDetails",
     props: {
-        workId: String, 
+        title: String, 
     },
     data() {
         return {
@@ -87,16 +90,16 @@ export default {
         this.updateProject();
     },
     watch: {
-        workId: 'updateProject', 
+        title: 'updateProject', 
     },
     methods: {
         updateProject() {
-            this.project = projects.find(project => project.id == this.workId);
+            this.project = projects.find(project => project.title == this.title);
         }
     },
     computed: {
         currentProjectIndex() {
-            return projects.findIndex(project => project.id == this.workId);
+            return projects.findIndex(project => project.title == this.title);
         },
         nextProjectId() {
             const nextIndex = (this.currentProjectIndex + 1) % projects.length;
