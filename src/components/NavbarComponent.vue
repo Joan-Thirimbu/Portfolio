@@ -98,7 +98,8 @@ export default{
         }
     },
     mounted() {
-            window.addEventListener('scroll', this.handleScroll);
+        window.scrollTo(0, 0);
+        window.addEventListener('scroll', this.handleScroll);
     },
     unmounted() {
         window.removeEventListener('scroll', this.handleScroll);

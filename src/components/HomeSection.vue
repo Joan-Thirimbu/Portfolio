@@ -22,9 +22,7 @@
 <script>
 export default{
     name: "HomeSection",
-    components:{
-
-    }
+    components:{},
 }
 </script>
 
