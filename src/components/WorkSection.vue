@@ -27,7 +27,7 @@
                     <li class="list">Mobile Design</li>
                 </ul>
             </div>
-            <div class="projects-div grid mt-8">
+            <div class="projects-div grid mt-8" id="projects">
                 <div class="project-card-border" v-for="project in projects" :key="project.title">
                     <div class="project-card-content">
                         <div class="project-image flex items-center justify-center flex-col">
@@ -38,11 +38,12 @@
                                 <span class="project-title">{{ project.title }}</span>
                                 <span class="project-type">- {{ project.type }}</span>
                             </div>
-                            <router-link :to="'/work/' + project.title">
+                            <a :href="'/work/' + project.title">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                                    <path d="M1.69421 13.2798L13.6942 1.27979M13.6942 1.27979H2.89421M13.6942 1.27979V12.0798" stroke="#F8F7F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M1.69421 13.2798L13.6942 1.27979M13.6942 1.27979H2.89421M13.6942 1.27979V12.0798" 
+                                        stroke="#F8F7F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                            </router-link>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -57,26 +58,30 @@
                             <div class="accordion-svg"></div>
                         </div>
                     </div>
-                    <div class="accordion-body flex flex-col" v-show="isOpen(index)">
-                        <div class="desc flex items-center gap-[15px]">
-                            <div class="flex items-center gap-[12px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 15" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.14286 5.81058C7.14286 4.62701 6.18357 3.66772 5 3.66772C3.81643 3.66772 2.85714 4.62701 2.85714 5.81058C2.85714 6.99415 3.81643 7.95344 5 7.95344C6.18357 7.95344 7.14286 6.99415 7.14286 5.81058ZM10 5.35718C10 8.11861 5 14.6429 5 14.6429C5 14.6429 0 8.11861 0 5.35718C0 2.59575 2.23857 0.357178 5 0.357178C7.76143 0.357178 10 2.59575 10 5.35718ZM5.71429 5.81058C5.71429 6.20415 5.39357 6.52487 5 6.52487C4.60643 6.52487 4.28571 6.20415 4.28571 5.81058C4.28571 5.41701 4.60643 5.0963 5 5.0963C5.39357 5.0963 5.71429 5.41701 5.71429 5.81058Z" fill="#64786B"/>
-                                </svg>
-                                <span class="location">{{ position.location }}</span>
-                            </div>
-                            <div class="flex items-center gap-[12px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.67505 0.771474C4.58415 0.56944 5.68701 0.5 7 0.5C8.31299 0.5 9.41584 0.56944 10.3249 0.771474C11.242 0.975279 12.0042 1.3232 12.5905 1.90951C13.1768 2.49581 13.5247 3.25801 13.7285 4.17505C13.9306 5.08415 14 6.18701 14 7.5C14 8.81299 13.9306 9.91584 13.7285 10.8249C13.5247 11.742 13.1768 12.5042 12.5905 13.0905C12.0042 13.6768 11.242 14.0247 10.3249 14.2285C9.41584 14.4306 8.31299 14.5 7 14.5C5.68701 14.5 4.58415 14.4306 3.67505 14.2285C2.75801 14.0247 1.99581 13.6768 1.40951 13.0905C0.8232 12.5042 0.475279 11.742 0.271474 10.8249C0.06944 9.91584 0 8.81299 0 7.5C0 6.18701 0.06944 5.08415 0.271474 4.17505C0.475279 3.25801 0.8232 2.49581 1.40951 1.90951C1.99581 1.3232 2.75801 0.975279 3.67505 0.771474ZM9.8 8.9C9.8 9.28661 9.48661 9.6 9.1 9.6C8.71339 9.6 8.4 9.28661 8.4 8.9V7.08994L5.39498 10.095C5.12161 10.3683 4.67839 10.3683 4.40502 10.095C4.13166 9.82162 4.13166 9.37838 4.40502 9.10503L7.41006 6.1H5.6C5.2134 6.1 4.9 5.7866 4.9 5.4C4.9 5.0134 5.2134 4.7 5.6 4.7H8.87019C9.38378 4.7 9.8 5.11642 9.8 5.62986V8.9Z" fill="#64786B"/>
-                                </svg>
-                                <span class="url">{{ position.url }}</span>
+                    <transition @enter="enter" @leave="leave">
+                        <div v-show="isOpen(index)" class="accordion-body flex flex-col" ref="accordionBodies">
+                            <div class="accordion-body-wrap flex flex-col gap-4">
+                                <div class="desc flex items-center">
+                                    <div class="flex items-center gap-[12px] mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 15" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.14286 5.81058C7.14286 4.62701 6.18357 3.66772 5 3.66772C3.81643 3.66772 2.85714 4.62701 2.85714 5.81058C2.85714 6.99415 3.81643 7.95344 5 7.95344C6.18357 7.95344 7.14286 6.99415 7.14286 5.81058ZM10 5.35718C10 8.11861 5 14.6429 5 14.6429C5 14.6429 0 8.11861 0 5.35718C0 2.59575 2.23857 0.357178 5 0.357178C7.76143 0.357178 10 2.59575 10 5.35718ZM5.71429 5.81058C5.71429 6.20415 5.39357 6.52487 5 6.52487C4.60643 6.52487 4.28571 6.20415 4.28571 5.81058C4.28571 5.41701 4.60643 5.0963 5 5.0963C5.39357 5.0963 5.71429 5.41701 5.71429 5.81058Z" fill="#64786B"/>
+                                        </svg>
+                                        <span class="location">{{ position.location }}</span>
+                                    </div>
+                                    <div class="flex items-center gap-[12px]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.67505 0.771474C4.58415 0.56944 5.68701 0.5 7 0.5C8.31299 0.5 9.41584 0.56944 10.3249 0.771474C11.242 0.975279 12.0042 1.3232 12.5905 1.90951C13.1768 2.49581 13.5247 3.25801 13.7285 4.17505C13.9306 5.08415 14 6.18701 14 7.5C14 8.81299 13.9306 9.91584 13.7285 10.8249C13.5247 11.742 13.1768 12.5042 12.5905 13.0905C12.0042 13.6768 11.242 14.0247 10.3249 14.2285C9.41584 14.4306 8.31299 14.5 7 14.5C5.68701 14.5 4.58415 14.4306 3.67505 14.2285C2.75801 14.0247 1.99581 13.6768 1.40951 13.0905C0.8232 12.5042 0.475279 11.742 0.271474 10.8249C0.06944 9.91584 0 8.81299 0 7.5C0 6.18701 0.06944 5.08415 0.271474 4.17505C0.475279 3.25801 0.8232 2.49581 1.40951 1.90951C1.99581 1.3232 2.75801 0.975279 3.67505 0.771474ZM9.8 8.9C9.8 9.28661 9.48661 9.6 9.1 9.6C8.71339 9.6 8.4 9.28661 8.4 8.9V7.08994L5.39498 10.095C5.12161 10.3683 4.67839 10.3683 4.40502 10.095C4.13166 9.82162 4.13166 9.37838 4.40502 9.10503L7.41006 6.1H5.6C5.2134 6.1 4.9 5.7866 4.9 5.4C4.9 5.0134 5.2134 4.7 5.6 4.7H8.87019C9.38378 4.7 9.8 5.11642 9.8 5.62986V8.9Z" fill="#64786B"/>
+                                        </svg>
+                                        <span class="url">{{ position.url }}</span>
+                                    </div>
+                                </div>
+                                <p>{{ position.desc }}</p>
+                                <div class="tools-div">
+                                    <span v-for="(tool, index) in position.tools" :key="index" class="tools">{{ tool }}</span>
+                                </div>
                             </div>
                         </div>
-                        <p>{{ position.desc }}</p>
-                        <div class="tools-div">
-                            <span v-for="(tool, index) in position.tools" :key="index" class="tools">{{ tool }}</span>
-                        </div>
-                    </div>
+                    </transition>
                 </div>
             </div>
         </div>
@@ -97,17 +102,31 @@ export default{
     components:{},
     methods: {
         toggleAccordion(index) {
-            if (this.activeIndex === index) {
-                this.activeIndex = -1;
-            } else {
-                this.activeIndex = index; 
-            }
+            this.activeIndex = this.activeIndex === index ? -1 : index;
         },
         isOpen(index) {
             return this.activeIndex === index;
         },
+        enter(el) {
+            el.style.height = '0px';
+            el.style.opacity = 0;
+            requestAnimationFrame(() => {
+            el.style.transition = 'all cubic-bezier(.4,0,.2,1) .4s';
+            el.style.height = el.scrollHeight + 'px';
+            el.style.opacity = 1;
+            });
+        },
+        leave(el) {
+            el.style.height = el.scrollHeight + 'px';
+            el.style.opacity = 1;
+            requestAnimationFrame(() => {
+            el.style.transition = 'all cubic-bezier(.4,0,.2,1) .4s';
+            el.style.height = '0px';
+            el.style.opacity = 0;
+            });
+        },
     },
-    }
+}
 </script>
 
 <style scoped>
@@ -149,11 +168,13 @@ h3{
     background-color: #F8F7F5;
 }
 .accordion-body{
-    padding: 24px;
-    gap: 15px;
-    align-self: stretch;
     border-radius: 5px;
     background: #DDE0DC;
+    max-height: 15em;
+    overflow: hidden;
+}
+.accordion-body-wrap{
+    padding: 24px;
 }
 .desc span{
     font-size: 12px;

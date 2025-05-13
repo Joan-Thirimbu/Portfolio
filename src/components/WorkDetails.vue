@@ -3,7 +3,7 @@
         <div id="work-details">
             <div class="work-details-content flex flex-col">
                 <div class="back-arrow">
-                    <router-link :to="'/'">
+                    <router-link :to="{ path: '/', hash: '#projects'}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
                             <circle cx="25" cy="25" r="24.75" stroke="#1E1E1E" stroke-width="0.5"/>
                             <path d="M20.4455 16.0505L15 21.7046L20.4455 27.3587" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -53,16 +53,16 @@
             <div class="flex justify-between items-center w-full">
                 <span>More Projects</span>
                 <div class="flex gap-[3em]">
-                    <router-link :to="'/work/' + previousProjectId" v-if="!isFirstProject">
+                    <div @click="navigateToProject(previousProjectId)" v-if="!isFirstProject" style="cursor: pointer;">
                         <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 7.5H16M1 7.5L7.25 1M1 7.5L7.25 14" stroke="#D397B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </router-link>
-                    <router-link :to="'/work/' + nextProjectId" v-if="!isLastProject">
+                    </div>
+                    <div @click="navigateToProject(nextProjectId)" v-if="!isLastProject" style="cursor: pointer;">
                         <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 7.5H16M16 7.5L9.75 1M16 7.5L9.75 14" stroke="#D397B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </router-link>
+                    </div>
                 </div>
             </div>
             <h2>{{ nextProjectTitle }}</h2>
@@ -95,7 +95,10 @@ export default {
     methods: {
         updateProject() {
             this.project = projects.find(project => project.title == this.title);
-        }
+        },
+        navigateToProject(projectId) {
+            window.location.href = '/work/' + projectId;
+        },
     },
     computed: {
         currentProjectIndex() {
@@ -103,11 +106,11 @@ export default {
         },
         nextProjectId() {
             const nextIndex = (this.currentProjectIndex + 1) % projects.length;
-            return projects[nextIndex].id;
+            return projects[nextIndex].title;
         },
         previousProjectId() {
             const prevIndex = (this.currentProjectIndex - 1 + projects.length) % projects.length;
-            return projects[prevIndex].id;
+            return projects[prevIndex].title;
         },
         nextProjectTitle() {
             if (this.isFirstProject) {
@@ -196,9 +199,6 @@ export default {
     font-weight: 400;
     letter-spacing: 0.9px;
 }
-/* .project-overview a{
-    color: blue;
-} */
 .project-overview a:hover{
     text-decoration: underline;
 }
@@ -230,8 +230,8 @@ export default {
 }
 .next-project-div{
     position: fixed;
-    bottom: 4.4vh;
-    right: 4.4vw;
+    bottom: 4vh;
+    right: 8.4vw;
     width: 18.8rem;
     height: 8.3125rem;
     padding: 1.875rem 2.5rem;
@@ -268,6 +268,9 @@ export default {
     }
     .project-type{
         margin-bottom: 0;
+    }
+    .project-type span{
+        font-size: 10px;
     }
     .client-info {
         font-size: 18px;
