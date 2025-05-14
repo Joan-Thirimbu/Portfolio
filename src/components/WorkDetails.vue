@@ -3,7 +3,7 @@
         <div id="work-details">
             <div class="work-details-content flex flex-col">
                 <div class="back-arrow">
-                    <router-link :to="{ path: '/', hash: '#projects'}">
+                    <router-link :to="{ path: '/'}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
                             <circle cx="25" cy="25" r="24.75" stroke="#1E1E1E" stroke-width="0.5"/>
                             <path d="M20.4455 16.0505L15 21.7046L20.4455 27.3587" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
