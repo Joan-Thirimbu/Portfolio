@@ -22,13 +22,20 @@
             <div class="filter-div flex items-center">
                 <span class="mr-3">Filter by:</span>
                 <ul class="filter-links">
-                    <li class="list">All</li>
-                    <li class="list">Web Design & Development</li>
-                    <li class="list">Mobile Design</li>
+                    <li class="list" :class="{ 'active-filter': selectedFilter === 'all' }" @click="setFilter('all')">
+                        <span>All</span>
+                    </li>
+                    <li class="list" :class="{ 'active-filter': selectedFilter === 'web' }" @click="setFilter('web')">
+                        <span>Web Design & Development</span>
+                    </li>
+                    <li class="list" :class="{ 'active-filter': selectedFilter === 'mobile' }" @click="setFilter('mobile')">
+                        <span>Mobile Design</span>
+                    </li>
                 </ul>
+
             </div>
             <div class="projects-div grid mt-8" id="projects">
-                <div class="project-card-border" v-for="project in projects" :key="project.title">
+                <div class="project-card-border" v-for="project in filteredProjects" :key="project.title">
                     <div class="project-card-content">
                         <div class="project-image flex items-center justify-center flex-col">
                             <img :src="project.image">
@@ -96,11 +103,29 @@ export default{
         return{
             projects,
             positions,
+            selectedFilter: 'all',
             activeIndex: 0,
+        }
+    },
+    computed: {
+        filteredProjects() {
+            if (this.selectedFilter === 'all') {
+                return this.projects;
+            }
+
+            return this.projects.filter(project => {
+                const type = project.type.toLowerCase();
+                return this.selectedFilter === 'web'
+                    ? type.includes('web')
+                    : type.includes('mobile');
+            });
         }
     },
     components:{},
     methods: {
+        setFilter(type) {
+            this.selectedFilter = type;
+        },
         toggleAccordion(index) {
             this.activeIndex = this.activeIndex === index ? -1 : index;
         },
@@ -202,7 +227,6 @@ h3{
     line-height: 15px; 
     letter-spacing: 0.48px;
 }
-
 #work{
     background: #F8F7F5;
     color: #1E1E1E;
@@ -255,11 +279,19 @@ h1{
     display: inline-block;
     font-weight: 500;
 }
+.filter-links li{
+    cursor: pointer;
+}
 .filter-links li:not(:last-child)::after {
     content: "/";
     color: #1E1E1E;
     text-decoration: none;
     padding-inline: 10px;
+}
+.active-filter span{
+    font-weight: bold;
+    color: #D397B1; 
+    text-decoration: underline;
 }
 .projects-div{
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
