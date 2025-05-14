@@ -97,7 +97,7 @@ export default {
             this.project = projects.find(project => project.title == this.title);
         },
         navigateToProject(projectId) {
-            window.location.href = '/work/' + projectId;
+            window.location.href = '/Portfolio/#/work/' + projectId;
         },
     },
     computed: {
