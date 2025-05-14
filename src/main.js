@@ -5,7 +5,7 @@ import WorkDetails from './components/WorkDetails.vue';
 import PageLayout from './components/PageLayout.vue';
 
 const router = VueRouter.createRouter({
-  history: VueRouter.createWebHistory('/Portfolio/'),
+  history: VueRouter.createWebHashHistory('/Portfolio/'),
   routes: [
     {
       path: '/',
@@ -17,16 +17,6 @@ const router = VueRouter.createRouter({
       props: true,
     },
   ],
-  scrollBehavior(to) {
-  if (to.hash) {
-    return {
-      el: to.hash,
-      behavior: 'smooth',
-    };
-  }
-  return { top: 0 };
-}
-
 });
 
 createApp(App)
