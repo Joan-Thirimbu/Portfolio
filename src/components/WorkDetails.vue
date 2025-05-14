@@ -53,15 +53,17 @@
             <div class="flex justify-between items-center w-full">
                 <span>More Projects</span>
                 <div class="flex gap-[3em]">
-                    <div @click="navigateToProject(previousProjectId)" v-if="!isFirstProject" style="cursor: pointer;">
-                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="flex gap-[3em]">
+                        <a v-if="!isFirstProject" :href="`/Portfolio/#/work/${previousProjectId}`" style="cursor: pointer;">
+                            <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 7.5H16M1 7.5L7.25 1M1 7.5L7.25 14" stroke="#D397B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div @click="navigateToProject(nextProjectId)" v-if="!isLastProject" style="cursor: pointer;">
-                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            </svg>
+                        </a> 
+                        <a v-if="!isLastProject" :href="`/Portfolio/#/work/${nextProjectId}`" style="cursor: pointer;">
+                            <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 7.5H16M16 7.5L9.75 1M16 7.5L9.75 14" stroke="#D397B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -95,9 +97,6 @@ export default {
     methods: {
         updateProject() {
             this.project = projects.find(project => project.title == this.title);
-        },
-        navigateToProject(projectId) {
-            window.location.href = '/Portfolio/#/work/' + projectId;
         },
     },
     computed: {
