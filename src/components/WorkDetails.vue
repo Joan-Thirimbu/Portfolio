@@ -98,7 +98,7 @@ export default {
         },
         navigateToProject(projectId) {
             window.location.href = window.location.origin + '/Portfolio/#/work/' + projectId;
-        }
+        },
     },
     computed: {
         currentProjectIndex() {
