@@ -11,7 +11,7 @@
                         <svg width="93" height="72" viewBox="0 0 93 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M78.8634 12.2591L78.4944 2L90.8531 15.5407L77.5526 29.8956L78.6591 18.31C78.6591 18.31 52.6636 21.3959 38.6009 30.4885C21.8684 41.3073 2 70 2 70C2 70 16.7153 32.1647 35.7761 20.4684C49.8867 11.8097 78.8634 12.2591 78.8634 12.2591Z" stroke="#D397B1" stroke-width="3" stroke-linejoin="round"/>
                         </svg>
-                        <img src="../assets/portfolio.png">
+                        <img src="../assets/portfolio.webp">
                     </div>
                     <div class="text-btn-div mt-4 flex flex-col items-start">
                         <span>Featured Project</span>
@@ -45,7 +45,7 @@
                                 <span class="project-title">{{ project.title }}</span>
                                 <span class="project-type">- {{ project.type }}</span>
                             </div>
-                            <a :href="'/work/' + project.title">
+                            <a :href="'#/work/' + project.title">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
                                     <path d="M1.69421 13.2798L13.6942 1.27979M13.6942 1.27979H2.89421M13.6942 1.27979V12.0798" 
                                         stroke="#F8F7F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

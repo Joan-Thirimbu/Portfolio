@@ -2,19 +2,19 @@ import design from '../src/assets/ui.svg';
 import computer from '../src/assets/computer.svg';
 import code from '../src/assets/code.svg';
 import taskforge from '../src/assets/taskforge.webp';
-import portfolio from '../src/assets/portfolio.png';
+import portfolio from '../src/assets/portfolio.webp';
 import afripesa from '../src/assets/afripesa.webp';
 import finsys from '../src/assets/finsys.webp';
-import deskTaskforge from '../src/assets/desktop-taskforge.png';
-import mobTaskforge from '../src/assets/mobile-taskforge.png';
-import sketchTaskforge from '../src/assets/sketch-taskforge.png';
-import wireframeafripesa from '../src/assets/wireframe-afripesa.png';
-import sketchafripesa from '../src/assets/sketch-afripesa.png';
-import deskFbs from '../src/assets/desktop-fbs.png';
-import mobFbs from '../src/assets/mobile-fbs.png';
-import sketch1 from '../src/assets/sketch1.png';
-import sketch2 from '../src/assets/sketch2.png';
-import sketch3 from '../src/assets/sketch3.png';
+import deskTaskforge from '../src/assets/desktop-taskforge.webp';
+import mobTaskforge from '../src/assets/mobile-taskforge.webp';
+import sketchTaskforge from '../src/assets/sketch-taskforge.webp';
+import wireframeafripesa from '../src/assets/wireframe-afripesa.webp';
+import sketchafripesa from '../src/assets/sketch-afripesa.webp';
+import deskFbs from '../src/assets/desktop-fbs.webp';
+import mobFbs from '../src/assets/mobile-fbs.webp';
+import sketch1 from '../src/assets/sketch1.webp';
+import sketch2 from '../src/assets/sketch2.webp';
+import sketch3 from '../src/assets/sketch3.webp';
 
 export const roles = [
     {
