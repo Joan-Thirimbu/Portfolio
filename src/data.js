@@ -2,6 +2,7 @@ import design from '../src/assets/ui.svg';
 import computer from '../src/assets/computer.svg';
 import code from '../src/assets/code.svg';
 import taskforge from '../src/assets/taskforge.webp';
+import portfolio from '../src/assets/portfolio.png';
 import afripesa from '../src/assets/afripesa.webp';
 import finsys from '../src/assets/finsys.webp';
 import deskTaskforge from '../src/assets/desktop-taskforge.png';
@@ -11,7 +12,9 @@ import wireframeafripesa from '../src/assets/wireframe-afripesa.png';
 import sketchafripesa from '../src/assets/sketch-afripesa.png';
 import deskFbs from '../src/assets/desktop-fbs.png';
 import mobFbs from '../src/assets/mobile-fbs.png';
-// import sketchFbs from '../src/assets/sketch-taskforge.png';
+import sketch1 from '../src/assets/sketch1.png';
+import sketch2 from '../src/assets/sketch2.png';
+import sketch3 from '../src/assets/sketch3.png';
 
 export const roles = [
     {
@@ -41,7 +44,19 @@ export const aboutInfo = `<p>As a <span class="key">Frontend Focused Developer</
 
 export const projects = [
     {
-        id: 1,
+        image: portfolio,
+        title: 'Portfolio',
+        type: 'Web & Mobile Design and Development',
+        client: 'Responsive web design & development for My Portfolio',
+        role: 'UI Designer & Front End Developer',
+        duty: 'Web Development using Vue',
+        url: 'https://www.figma.com/design/Sgy9riSkjHCZexnow3Wdh8/Portfolio?node-id=0-1&t=TMHdlBFaK3LaFVpC-1',
+        desc: "I took on the challenge of designing and developing my personal portfolio from the ground up. It was a great chance to put my technical skills and design instincts to the test, while also creating something that feels genuinely “me.” From wireframes and UI/UX design to front-end development and deployment, I handled everything myself. The result? A portfolio that not only shows what I can do—but also how I think, create, and bring ideas to life. I did accomplished this fueled by determination, powered by caffeine (tea), maybe a little frustration, and an alarming number of tabs open. But hey—a win is a win, right? 😌 RIGHT! 👀.",
+        preview: sketch1,
+        mobImg: sketch2,
+        sketch: sketch3,
+    },
+    {
         image: taskforge,
         title: 'TaskForge',
         type: 'web design and development',
@@ -55,7 +70,6 @@ export const projects = [
         sketch: sketchTaskforge,
     },
     {
-        id: 2,
         image: afripesa,
         title: 'AfriPesa',
         type: 'mobile design',
@@ -68,7 +82,6 @@ export const projects = [
         sketch: sketchafripesa,
     },
     {
-        id: 3,
         image: finsys,
         title: 'Finsys Banking',
         type: 'Web & Mobile Design and Development',
