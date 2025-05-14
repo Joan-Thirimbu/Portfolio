@@ -5,7 +5,7 @@ import WorkDetails from './components/WorkDetails.vue';
 import PageLayout from './components/PageLayout.vue';
 
 const router = VueRouter.createRouter({
-  history: VueRouter.createWebHistory(process.env.BASE_URL),
+  history: VueRouter.createWebHistory('/Portfolio/'),
   routes: [
     {
       path: '/',
