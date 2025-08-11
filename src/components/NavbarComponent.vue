@@ -15,7 +15,7 @@
                     <li><a href="#about" class="link about" @click.prevent="scrollToSection('about'); toggleNav()"><span>About</span></a></li>
                     <li><a href="#work" class="link work" @click.prevent="scrollToSection('work'); toggleNav()"><span>Work</span></a></li>
                     <li><a href="#contact" class="link contact" @click.prevent="scrollToSection('contact'); toggleNav()"><span>Contact</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/11QpwPFTndiRIy7NcqxBvozXje1ITmt-p/view?usp=drivesdk" target="_blank" rel="noopener noreferrer"><span>CV</span></a></li>
+                    <li><a href="https://docs.google.com/document/d/1QbeB9MbAAOx2kfazEZ2SbIiJqe6MhvtuwnByuaZFZos/edit?usp=sharing" target="_blank" rel="noopener noreferrer"><span>CV</span></a></li>
                 </ul>
             </div>
         </div>
