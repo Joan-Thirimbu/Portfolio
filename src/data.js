@@ -99,8 +99,16 @@ export const projects = [
 
 export const positions = [
     {
+        title: 'UX/UI design Intern',
+        period: 'May 2025 - June 2025',
+        location: 'Nairobi, Kenya',
+        url: 'https://finsys-group.com/',
+        desc: 'I collaborated with the design and development teams to create prototypes, refine user flows, and ensure consistency across the product’s UI.',
+        tools: ['Figma']
+    },
+    {
         title: 'Junior Full-stack developer & Lead UI designer',
-        period: 'Jan 2023 - Present',
+        period: 'Jan 2023 - Aug 2024',
         location: 'Nairobi, Kenya',
         url: 'https://finsys-group.com/',
         desc: 'I have spearheaded the development of innovative web solutions, leveraging a broad range of technologies such as Vue.js, Angular, Django, and CodeIgniter. My role combines technical expertise with creative design, ensuring that every project meets functional needs while also providing an exceptional and engaging user experience.',
