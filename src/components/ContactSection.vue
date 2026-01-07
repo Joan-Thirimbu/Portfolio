@@ -1,5 +1,5 @@
 <template>
-    <section class="py-[4.9em]" id="contact">
+    <section class="py-[5.625em]" id="contact">
         <div class="contact-content flex justify-between">
             <div class="contacts flex flex-col gap-[2.125em]">
                 <img src="../assets/avatar.webp">
@@ -12,7 +12,6 @@
                     <ul class="flex">
                         <li class="links"><a href="https://www.linkedin.com/in/joan-thirimbu-969008231/" target="_blank">LinkedIn</a></li>
                         <li class="links"><a href="https://github.com/Joan-Thirimbu/" target="_blank">Github</a></li>
-                        <li class="links"><a href="https://www.instagram.com/joan.thirimbu/" target="_blank">Instagram</a></li>
                     </ul>
                 </div>
             </div>

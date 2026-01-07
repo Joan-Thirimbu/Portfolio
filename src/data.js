@@ -99,10 +99,18 @@ export const projects = [
 
 export const positions = [
     {
+        title: 'Lead UI designer',
+        period: 'Aug 2025 - Nov 2025',
+        location: 'Remote',
+        url: 'https://www.norahdigital.com/',
+        desc: 'I was responsible for designing intuitive and visually engaging interfaces for web and mobile. I lead the UI design process from research and wireframes to high-fidelity mockups, iterating based on user feedback and collaborating with cross-functional teams to ensure a seamless experience.',
+        tools: ['Figma', 'Canva', 'Photopea'] 
+    },
+    {
         title: 'UX/UI design Intern',
         period: 'May 2025 - June 2025',
         location: 'Nairobi, Kenya',
-        url: 'https://finsys-group.com/',
+        url: 'https://raasissoftware.com/',
         desc: 'I collaborated with the design and development teams to create prototypes, refine user flows, and ensure consistency across the product’s UI.',
         tools: ['Figma']
     },
@@ -111,7 +119,7 @@ export const positions = [
         period: 'Jan 2023 - Aug 2024',
         location: 'Nairobi, Kenya',
         url: 'https://finsys-group.com/',
-        desc: 'I have spearheaded the development of innovative web solutions, leveraging a broad range of technologies such as Vue.js, Angular, Django, and CodeIgniter. My role combines technical expertise with creative design, ensuring that every project meets functional needs while also providing an exceptional and engaging user experience.',
+        desc: 'I was involved in the development of innovative web solutions, leveraging a broad range of technologies such as Vue.js, Angular, Django, and CodeIgniter. My role combines technical expertise with creative design, ensuring that every project meets functional needs while also providing an exceptional and engaging user experience.',
         tools: ['Figma', 'VueJS', 'Codeigniter', 'Angular', 'Django']
     },
     {

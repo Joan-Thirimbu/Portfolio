@@ -11,11 +11,11 @@
             </button>
             <div class="pr-18 nav-container" :class="{ open: isExpanded }">
                 <ul class="nav-links justify-between flex">
-                    <li><a href="#home" class="link home" @click.prevent="scrollToSection('home'); toggleNav()"><span>Home</span></a></li>
-                    <li><a href="#about" class="link about" @click.prevent="scrollToSection('about'); toggleNav()"><span>About</span></a></li>
-                    <li><a href="#work" class="link work" @click.prevent="scrollToSection('work'); toggleNav()"><span>Work</span></a></li>
-                    <li><a href="#contact" class="link contact" @click.prevent="scrollToSection('contact'); toggleNav()"><span>Contact</span></a></li>
-                    <li><a href="https://docs.google.com/document/d/1QbeB9MbAAOx2kfazEZ2SbIiJqe6MhvtuwnByuaZFZos/edit?usp=sharing" target="_blank" rel="noopener noreferrer"><span>CV</span></a></li>
+                    <li><a href="#home" class="link home" :class="{ active: activeSection === 'home' }" @click.prevent="scrollToSection('home'); toggleNav()"><span>Home</span></a></li>
+                    <li><a href="#about" class="link about" :class="{ active: activeSection === 'about' }" @click.prevent="scrollToSection('about'); toggleNav()"><span>About</span></a></li>
+                    <li><a href="#work" class="link work" :class="{ active: activeSection === 'work' }" @click.prevent="scrollToSection('work'); toggleNav()"><span>Work</span></a></li>
+                    <li><a href="#contact" class="link contact" :class="{ active: activeSection === 'contact' }" @click.prevent="scrollToSection('contact'); toggleNav()"><span>Contact</span></a></li>
+                    <li><a href="https://docs.google.com/document/d/1QbeB9MbAAOx2kfazEZ2SbIiJqe6MhvtuwnByuaZFZos/preview" target="_blank" rel="noopener noreferrer"><span>CV</span></a></li>
                 </ul>
             </div>
         </div>
@@ -33,6 +33,7 @@ export default{
             lineClass: '',
             svg: '',
             lastValidSection: null,
+            activeSection: 'home',
         };
     },
     methods: {
@@ -41,6 +42,7 @@ export default{
             this.updateNavbarStyle(this.lastValidSection);
         },
         scrollToSection(section) {
+            this.activeSection = section;
             this.updateNavbarStyle(section);
             const element = document.getElementById(section);
             window.scrollTo({
@@ -72,21 +74,23 @@ export default{
             }
         },
         handleScroll() {
-            const sections = ['work', 'contact']; 
-            let activeSection = '';
+            const sections = ['home', 'about', 'work', 'contact'];
+            let current = this.activeSection;
 
             sections.forEach(section => {
-                const element = document.getElementById(section);
-                    const sectionTop = element.getBoundingClientRect().top; 
-                    const sectionHeight = element.offsetHeight;
-                    const viewportHeight = window.innerHeight;
+                const el = document.getElementById(section);
+                if (!el) return;
 
-                    if (sectionTop < viewportHeight * 0.8 && sectionTop + sectionHeight > viewportHeight * 0.8) {
-                        activeSection = section;  
-                    }
+                const rect = el.getBoundingClientRect();
+                const offset = window.innerHeight * 0.5;
+
+                if (rect.top <= offset && rect.bottom >= offset) {
+                    current = section;
+                }
             });
 
-            this.updateNavbarStyle(activeSection);
+            this.activeSection = current;
+            this.updateNavbarStyle(current);
         }
     },
     watch: {
@@ -152,6 +156,9 @@ export default{
 .copyright{
     gap: 6px;
 }
+.link.active {
+    color: #d397b1;
+}
 .material-icons{
     font-size: 10px;
     margin-bottom: 1.5px;
@@ -192,6 +199,11 @@ export default{
     line-height: normal;
     letter-spacing: 5px;
     text-transform: uppercase;
+}
+.nav-links li a{
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (min-width: 769px){
@@ -248,7 +260,7 @@ export default{
     .nav-container{
         position: fixed;
         padding: 0;
-        inset: 0 0 0 40%;
+        inset: 0;
         transform: translateX(100%);
         transition: transform 300ms ease-in-out;
     }
@@ -276,6 +288,10 @@ export default{
         gap: 1.5em;
         height: 100vh;
         padding-left: 2em;
+    }
+    .nav-links li{
+        font-size: 16px;
+        font-weight: 500;
     }
     @supports (backdrop-filter: blur(.3em)) {
         .nav-links{
